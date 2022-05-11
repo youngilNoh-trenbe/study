@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>study</title>
+<link rel="stylesheet" href="common.css" />
+<script src="libs/jquery-3.6.0.min.js"></script>
+<script src="common.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <!-- tab -->
+        <div class="tab ul-tab">
+            <div class="tab_list" role="tablist">
+                <a href="#con01" class="on" role="button" aria-selected="true" title="선택됨">탭1</a>
+                <a href="#con02" role="button" aria-selected="false">탭2</a>
+                <a href="#con03" role="button" aria-selected="false">탭3</a>
+            </div>
+            <div id="con01" class="tab_panel on" role="tabpanel">탭1내용</div>
+            <div id="con02" class="tab_panel" role="tabpanel">탭2내용</div>
+            <div id="con03" class="tab_panel" role="tabpanel">탭3내용</div>
+        </div>
+        <!-- //tab -->
+        <br><br>
+        <!-- scroll tab -->
+        <div class="scroll_area ul-tab">
+            <ul class="scroll_list scroll" role="tablist">
+                <li class="on"><a href="#" aria-selected="true" title="선택됨">#부추김치</a></li>
+                <li><a href="#" aria-selected="false">#배추김치</a></li>
+                <li><a href="#" aria-selected="false">#열무김치</a></li>
+                <li><a href="#" aria-selected="false">#갓김치</a></li>
+                <li><a href="#" aria-selected="false">#파김치</a></li>
+                <li><a href="#" aria-selected="false">#백김치</a></li>
+                <li><a href="#" aria-selected="false">#겉절이</a></li>
+                <li><a href="#" aria-selected="false">#동치미</a></li>
+            </ul>
+            <div class="list_wrap on" role="tabpanel">부추김치</div>
+            <div class="list_wrap" role="tabpanel">배추김치</div>
+            <div class="list_wrap" role="tabpanel">열무김치</div>
+            <div class="list_wrap" role="tabpanel">갓김치</div>
+            <div class="list_wrap" role="tabpanel">파김치</div>
+            <div class="list_wrap" role="tabpanel">백김치</div>
+            <div class="list_wrap" role="tabpanel">겉절이</div>
+            <div class="list_wrap" role="tabpanel">동치미</div>
+        </div>
+          
+        <!-- //scroll tab -->
+    </div>
+</body>
+</html>
