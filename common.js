@@ -41,16 +41,19 @@ var tabUI = function(){
 
     $(document).on('click','.scroll_list a', function(e){
         e.preventDefault();
-      var $this = $(this);
-      var idx = $this.parent('li').index();
+        var $this = $(this);
+        var idx = $this.parent('li').index();
+        var $scrollWrap = $this.parents('.scroll_list');
+        var positionLeft = $this.parent('li').position().left + Number($this.parent('li').css('marginLeft').replace(/[^0-9]/g, ''));
+        var scrollLeft = $scrollWrap.scrollLeft();
 
-      $this.attr({'aria-selected': true, 'title': "선택됨"})
+        $this.attr({'aria-selected': true, 'title': "선택됨"})
           .parent('li').addClass('on')
           .siblings('li').removeClass('on')
           .children('a').attr({'aria-selected': false}).removeAttr('title')
           .parents('.scroll_area').find('.list_wrap').eq(idx).addClass('on').siblings('.list_wrap').removeClass('on');
 
-      // $this.closest('.scroll').animate({'scrollLeft': $thprnt.position().left});
+        $scrollWrap.animate({'scrollLeft': positionLeft + scrollLeft}, 150);
     }) 
 
     
