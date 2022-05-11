@@ -39,6 +39,19 @@ var tabUI = function(){
     offset으로 left값을 찾았는데 ...동작이 뭔가가 
     */
 
+    //tab 초기화
+    const tabInit = function() {
+        $('.scroll_area').each(function() {
+            const firstText = $(this).find('.scroll_list li:first-child a').text();
+
+            $(this).find('.scroll_list li:first-child').addClass('on')
+                .children('a').attr({'aria-selected': true, 'title': '선택됨'})
+                .parent('li').siblings('li').children('a').attr({'aria-selected': false})
+                .parents('.scroll_area').find('.list_wrap:eq(0)').text(firstText).addClass('on');
+        });
+    }
+    tabInit();
+
     $(document).on('click','.scroll_list a', function(e){
         e.preventDefault();
         var $this = $(this);

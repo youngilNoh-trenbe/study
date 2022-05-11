@@ -21,6 +21,7 @@ a{color:#333;text-decoration:none}
 .scroll_list>li{flex:1;white-space:nowrap;margin-left:5px}
 .scroll_list>li:first-child{margin-left:0}
 .scroll_list>li>a{display:block;height:35px;padding:0 10px;border:1px solid #ddd;border-radius:50px;background-color:#fff;line-height:35px}
+.scroll_list>li>a:before{content:'#'}
 .scroll_list>.on a{border-color:var(--activeColor);background-color:var(--activeColor)}
 .scroll_area .list_wrap{display:none;padding:1rem 0}
 .scroll_area .list_wrap.on{display:block}
