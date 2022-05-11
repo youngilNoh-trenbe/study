@@ -40,20 +40,17 @@ var tabUI = function(){
     */
 
     $(document).on('click','.scroll_list a', function(e){
-        e.preventDefault;
-        var $this   = $(this),
-            $thprnt = $(this).parent();
-        if(!$thprnt.hasClass('on')){
-            $this.attr({'title':'선택됨','aria-selected':'true'});
-            $thprnt.addClass('on').siblings().removeClass('on');
-            $this.removeAttr('title').attr({'aria-selected':'false'});
-            $thprnt.parents().nextAll('.list_wrap:eq('+ $thprnt.index() +')').addClass('on').siblings('.list_wrap').removeClass('on');
-            // $this.closest('.scroll').stop().animate({scrollLeft : ($thprnt.offset().left)});
-            $this.closest('.scroll').stop().animate({scrollLeft : ($thprnt.offset().left)});
-            console.log($thprnt.offset().left, $this.closest('.scroll').scrollLeft());
-            // console.log('.list_wrap:eq('+ $thprnt.index() +')')
-        }
+        e.preventDefault();
+      var $this = $(this);
+      var idx = $this.parent('li').index();
 
+      $this.attr({'aria-selected': true, 'title': "선택됨"})
+          .parent('li').addClass('on')
+          .siblings('li').removeClass('on')
+          .children('a').attr({'aria-selected': false}).removeAttr('title')
+          .parents('.scroll_area').find('.list_wrap').eq(idx).addClass('on').siblings('.list_wrap').removeClass('on');
+
+      // $this.closest('.scroll').animate({'scrollLeft': $thprnt.position().left});
     }) 
 
     
