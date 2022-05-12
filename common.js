@@ -43,16 +43,13 @@ var tabUI = function(){
         e.preventDefault;
         var $this   = $(this),
             $thprnt = $(this).parent();
-        if(!$thprnt.hasClass('on')){
-            $this.attr({'title':'선택됨','aria-selected':'true'});
+            $this.attr({'title':'
+            선택됨','aria-selected':'true'});
             $thprnt.addClass('on').siblings().removeClass('on');
             $this.removeAttr('title').attr({'aria-selected':'false'});
             $thprnt.parents().nextAll('.list_wrap:eq('+ $thprnt.index() +')').addClass('on').siblings('.list_wrap').removeClass('on');
-            // $this.closest('.scroll').stop().animate({scrollLeft : ($thprnt.offset().left)});
-            $this.closest('.scroll').stop().animate({scrollLeft : ($thprnt.offset().left)});
-            console.log($thprnt.offset().left, $this.closest('.scroll').scrollLeft());
-            // console.log('.list_wrap:eq('+ $thprnt.index() +')')
-        }
+            $this.closest('.scroll').stop().animate({scrollLeft : ($thprnt.position().left)});
+            console.log(($thprnt.position().left));
 
     }) 
 
