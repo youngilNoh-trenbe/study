@@ -3,7 +3,9 @@
 body, h1, h2, h3, h4, h5, h6, section, ul , ol, dl, dt, dd, p, button{margin:0;padding:0;font-family: 'Noto Sans KR',sans-serif;font-size:14px}
 li{list-style:none}
 a{color:#333;text-decoration:none}
-
+:root{
+  --activeColor:#efab41;
+}
 .wrap{width:600px;margin:0 auto}
 
 /*tab*/
@@ -15,10 +17,11 @@ a{color:#333;text-decoration:none}
 
 /*scroll_area*/
 .scroll_area{width:360px;}
-.scroll_list{display:flex;overflow-x:auto}
+.scroll_list{display:flex;overflow-x:auto;position:relative}
 .scroll_list>li{flex:1;white-space:nowrap;margin-left:5px}
 .scroll_list>li:first-child{margin-left:0}
 .scroll_list>li>a{display:block;height:35px;padding:0 10px;border:1px solid #ddd;border-radius:50px;background-color:#fff;line-height:35px}
-.scroll_list>.on a{border:none;background-color:#efab41}
-.scroll_area .list_wrap{display:none}
+.scroll_list>li>a:before{content:'#'}
+.scroll_list>.on a{border-color:var(--activeColor);background-color:var(--activeColor)}
+.scroll_area .list_wrap{display:none;padding:1rem 0}
 .scroll_area .list_wrap.on{display:block}
