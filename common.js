@@ -5,34 +5,20 @@ $(function(){
 //tab
 
 var tabUI = function(){
-    //wai-aria
-    var $tab = $('.ul-tab');
-    /* 나중에 상단 탭까지 마크업 맞추고 wai-area부분 여기에 몰아넣기 !  */
+    //wai-aria 부분
+    var $tab = $('.ul-tab'); 
 
+    if($tab.length > 0){
+        $tab.find('li.on').find('>a').attr({'title':'선택됨','aria-selected':'true'}).siblings('li').find('>a').attr('aria-selected','false').removeAttr('title');
+    }
+    
 
-
-    $(document).on('click','.tab_list a',function(e){
+    $(document).on('click','.ul-tab a',function(e){
         e.preventDefault;
-        var $this = $(this);
-            $this.addClass('on').attr({'title':'선택됨','aria-selected':'true'}).siblings().removeClass('on').attr('aria-selected','false').removeAttr('title');
-            $this.parent().siblings('.tab_panel:eq('+ $this.index() +')').addClass('on').siblings('.tab_panel').removeClass('on');
-
-            /*  <-- 이방식으로 li a 로 해보려고하니까 속성뒤에 $ 올때 어케해야할지 ㅜ_ㅜ
-                $this.addClass('on') 이다음 $this가 오고싶은데 ㅜㅜ 계속 오류 
-            */
-
-        // var href = $(this).attr('href');
-        // if(!$this.hasClass('on')){
-        //     $this.addClass('on').attr({'title':'선택됨','aria-selected':'true'}); 
-        //     $this.siblings('a').removeClass('on').removeAttr('title').attr({'aria-selected':'false'}); 
-        //     $this.siblings('a').removeClass('on').parent().nextAll('.tab_panel').removeClass('on');
-        //     $(href).addClass('on').parent().next('.tab_panel').removeClass('on');
-
-
-        // }else{
-        //     $this.attr({'title':'선택됨','aria-selected':'true'});
-        //     $this.siblings('a').removeAttr('title').attr({'aria-selected':'false'});
-        // } 
+        var $this = $(this),
+            idx = $this.parent('li').index();
+            $this.parent().addClass('on').siblings('li').removeClass('on')
+            $this.parents('.ul-tab').find('.tab_panel').eq(idx).addClass('on').siblings('.tab_panel').removeClass('on');
     }); 
 
 
